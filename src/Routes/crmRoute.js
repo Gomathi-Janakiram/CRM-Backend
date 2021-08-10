@@ -1,11 +1,16 @@
-import { Router } from "express";
-
 const Routes = (app) => {
   app
     .route("/contact")
-    .get((req, res) => {
-      res.send("Get method successfull");
-    })
+    .get(
+      (req, res, next) => {
+        console.log(`Request from ${req.originalUrl}`);
+        console.log(`Request type ${req.method}`);
+        next();
+      },
+      (req, res, next) => {
+        res.send("Get method successfull");
+      }
+    )
 
     .post((req, res) => {
       res.send("POSt method successfull");
