@@ -32,7 +32,9 @@ const Routes = (app) => {
     // to update a contact
     .put(updateContact)
     
-    // to delete a contact
+
+  app.route("/contact/delete")
+     // to delete a contact
     .delete(deleteContact);
 };
 
