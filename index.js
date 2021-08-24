@@ -2,6 +2,7 @@ import express from "express";
 import Routes from "./src/Routes/crmRoute";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
+import cors from 'cors'
 
 const app = express();
 const PORT = 4000;
@@ -22,6 +23,11 @@ mongoose.connect(
     }
   }
 );
+
+// cors
+
+
+app.use(cors())
 
 // body-parser setup
 
