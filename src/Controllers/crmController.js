@@ -36,7 +36,7 @@ export const getContactWithId = (req, res) => {
 
 export const updateContact = (req, res) => {
   Contact.findOneAndUpdate(
-    { _id: req.params.contactId },
+    { _id: req.body._id },
     req.body,
     { new: true, useFindAndModify: false },
     (err, contact) => {
@@ -50,7 +50,7 @@ export const updateContact = (req, res) => {
 };
 
 export const deleteContact = (req, res) => {
-  Contact.remove({ _id: req.body._id}, (err, contact) => {
+  Contact.remove({ _id: req.body._id }, (err, contact) => {
     if (err) {
       res.send(err);
     } else {

@@ -5,11 +5,9 @@ import {
   updateContact,
   deleteContact,
 } from "../Controllers/crmController";
-
-
-
 const Routes = (app) => {
-  app.route("/contact")
+  app
+    .route("/contact")
     // to get all the contacts
     .get(
       // middleware
@@ -24,17 +22,17 @@ const Routes = (app) => {
     // to create a contact
     .post(AddContact);
 
-
-  app.route("/contact/:contactId")
+  app
+    .route("/contact/edit")
     // to get a specific contact
     .get(getContactWithId)
 
     // to update a contact
-    .put(updateContact)
-    
+    .put(updateContact);
 
-  app.route("/contact/delete")
-     // to delete a contact
+  app
+    .route("/contact/delete")
+    // to delete a contact
     .delete(deleteContact);
 };
 
